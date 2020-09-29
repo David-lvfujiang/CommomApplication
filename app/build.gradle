@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersionlintOptions
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+
+        // MultiDex分包方法
+        multiDexEnabled true
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        //添加如下配置 开启annotation processor
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../keystore/releasekey.jks')
+            storePassword 'Fendakeji'
+            keyAlias 'fenda'
+            keyPassword 'Fendakeji'
+        }
+        release {
+            storeFile file('../keystore/releasekey.jks')
+            storePassword 'Fendakeji'
+            keyAlias 'fenda'
+            keyPassword 'Fendakeji'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':common_base')
+    api rootProject.ext.dependencies['butterknife']
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.android.material:material:1.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+    api rootProject.ext.dependencies['design']
+    implementation 'org.projectlombok:lombok:1.18.10' //添加lombok依赖
+    implementation 'org.glassfish:javax.annotation:10.0-b28' //java注解
+    implementation 'com.yanzhenjie:permission:2.0.0-rc4'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22' //RecyclerView适配器
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.1' //1.0.5及以前版本的老用户升级需谨慎，API改动过大
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.1' //没有使用特殊Header，可以不加这行
+    implementation 'net.qiujuer.widget:airpanel:1.4.0' //聊天页面软键盘与面板
+    implementation 'me.jessyan:autosize:1.1.2' //今日头条屏幕适配
+    implementation 'org.parceler:parceler-api:1.1.12' //序列化
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+    implementation 'com.yarolegovich:discrete-scrollview:1.4.9' //画廊
+    implementation 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.8' //图片选择器
+
+
+    //可选，用于生成application类
+    provided('com.tencent.tinker:tinker-android-anno:1.9.1')
+    //tinker的核心库
+    compile('com.tencent.tinker:tinker-android-lib:1.9.1')
+
+
+    // 车牌识别
+    // zxing
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.shouzhong:Scanner:1.1.2'
+    implementation 'com.shouzhong:ScannerLicensePlateLib:1.0.2'
+    implementation 'pub.devrel:easypermissions:1.0.1'
+    implementation 'com.github.CodingEnding:FairySearchView:1.01'
+    implementation 'com.jpeng:JPTabBar:1.4.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+
+
+}
+

@@ -1,0 +1,4 @@
+platform.jks    用于需要获取系统权限的APP 签名密钥
+releasekey.jks  用于普通APP 签名密钥
+密码: Fendakeji
+

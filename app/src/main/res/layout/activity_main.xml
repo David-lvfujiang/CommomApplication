@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nnmzkj.common.view.MultipleStatusView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/multiple_status_view"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@color/colorDefaultText"
+    app:emptyView="@layout/common_view_no_data"
+    app:errorView="@layout/common_view_net_error"
+    app:loadingView="@layout/common_view_loading"
+    app:noNetworkView="@layout/common_view_net_error"
+    >
+
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+
+      >
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tl_commen"
+        />
+
+
+    <com.jpeng.jptabbar.JPTabBar
+        android:id="@+id/tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:TabIconSize="32dp"
+        app:TabAnimate="Scale2"
+        app:TabGradientEnable="true"
+        app:TabMiddleHMargin="60dp"
+        app:TabMiddleBottomDis="10dp"
+        app:TabMiddleView="@layout/center_layout"
+        app:TabPageAnimateEnable="true"
+        app:TabSelectColor="@color/colorPrimary"
+
+        />
+  </FrameLayout>
+
+
+</com.nnmzkj.common.view.MultipleStatusView>

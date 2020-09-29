@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="30dp"
+    tools:targetApi="lollipop"
+    >
+
+  <ImageView
+      android:orientation="vertical"
+      android:src="@mipmap/home"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      android:padding="10dp"
+      android:background="?android:attr/selectableItemBackgroundBorderless"
+      >
+
+  </ImageView>
+</androidx.cardview.widget.CardView>

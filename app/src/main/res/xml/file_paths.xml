@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path path="image/" name="image" />
+    <external-path name="camera_photos" path="/" />
+    <external-path
+        name="download"
+        path="Download"/>
+
+</paths>

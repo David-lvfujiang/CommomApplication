@@ -1,0 +1,112 @@
+/**
+ *  全局统一配置文件
+ *
+ *  引用步骤：
+ *  1、在 project 下的 build.gradle 文件第一行添加 apply from : "config.gradle"
+ *  2、在各个 module 中用 implemetions rootProject.ext.dependencies['xxx'] 和 annotationProcessor rootProject.ext..dependencies['xxx']
+ *
+ */
+ext {
+
+    /**
+     * isModule 标识每个业务组件是否以单独运行，修改之后需要同步才能生效
+     * true：表示每个业务组件可以单独开发
+     * false：表示每个业务组件是一个Library，不能单独运行com.nnmzkj.sanrancustomer
+     */
+    isModule = false
+
+    /**
+     * 应用基数信息管理
+     */
+    android = [
+            applicationId: 'com.nnmzkj', // 应用ID
+            compileSdkVersion: 29, // android 10.0 版本
+            buildToolsVersion: "28.0.3",
+            minSdkVersion: 19, // android 4.4 版本
+            targetSdkVersion: 28,
+            versionCode: 1, // 版本号
+            versionName: "1.0.0", // 版本名称
+    ]
+
+    /**
+     * 版本号管理
+     */
+    versions = [
+            androidSupportSdkVersion: "28.0.0",
+            constraintLayoutVersion: "1.1.3",
+            annotationsVersion: "28.0.0",
+            multidexVersion: "1.0.2",
+            butterknifeVersion: "10.0.0",
+            arouterApiVersion: "1.4.1",
+            arouterCompilerVersion: "1.2.2",
+            arouterannotationVersion: "1.0.4",
+            eventbusVersion: "3.1.1",
+            retrofitVersion: "2.4.0",
+            okhttpVersion: "3.11.0",
+            gsonVersion: "2.8.5",
+            glideVersion: "4.9.0",
+            bannerVersion: "1.4.10",
+            javaxVersion: "1.2",
+            rxjavaVersion: "2.2.2",
+            rxandroidVersion: "2.1.0",
+            recyclerAdapterVersion: "2.9.47",
+            javaSDKVersion: 1.8, // JDK 版本
+            junitVersion: "4.12",
+
+    ]
+    dependencies = [
+            "support-v4": "com.android.support:support-v4:${versions["androidSupportSdkVersion"]}",
+            "appcompat-v7": "com.android.support:appcompat-v7:${versions["androidSupportSdkVersion"]}",
+            "design": "com.android.support:design:${versions["androidSupportSdkVersion"]}",
+            "cardview-v7": "com.android.support:cardview-v7:${versions["androidSupportSdkVersion"]}",
+            "recyclerview-v7": "com.android.support:recyclerview-v7:${versions["androidSupportSdkVersion"]}",
+            "constraint-layout": "com.android.support.constraint:constraint-layout:${versions["constraintLayoutVersion"]}",
+            "support-annotations": "com.android.support:support-annotations:${versions["annotationsVersion"]}",
+            "support-vector-drawable": "com.android.support:support-vector-drawable:${versions["androidSupportSdkVersion"]}",
+
+            // 网络
+            "retrofit": "com.squareup.retrofit2:retrofit:${versions["retrofitVersion"]}",
+            "converter-gson": "com.squareup.retrofit2:converter-gson:${versions["retrofitVersion"]}",
+            "adapter-rxjava": "com.squareup.retrofit2:adapter-rxjava2:${versions["retrofitVersion"]}",
+            "okhttp": "com.squareup.okhttp3:okhttp:${versions["okhttpVersion"]}",
+            "logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${versions["okhttpVersion"]}",
+            "retrofit-cookie": "com.github.franmontiel:PersistentCookieJar:v1.0.1",
+
+            // RxJava
+            "rxjava": "io.reactivex.rxjava2:rxjava:${versions["rxjavaVersion"]}",
+            "rxandroid": "io.reactivex.rxjava2:rxandroid:${versions["rxandroidVersion"]}",
+
+            // gson
+            "gson": "com.google.code.gson:gson:${versions["gsonVersion"]}",
+
+            // 图片加载
+            "glide": "com.github.bumptech.glide:glide:${versions["glideVersion"]}",
+            "glide-compiler": "com.github.bumptech.glide:compiler:${versions["glideVersion"]}",
+
+            // butterknife
+            "butterknife-compiler": "com.jakewharton:butterknife-compiler:${versions["butterknifeVersion"]}",
+            "butterknife": "com.jakewharton:butterknife:${versions["butterknifeVersion"]}",
+
+            // 方法数超过65535解决方法64K MultiDex分包方法
+            "multidex": "com.android.support:multidex:${versions["multidexVersion"]}",
+
+            // 路由
+            "arouter-api": "com.alibaba:arouter-api:${versions["arouterApiVersion"]}",
+            "arouter-compiler": "com.alibaba:arouter-compiler:${versions["arouterCompilerVersion"]}",
+            "arouter-annotation": "com.alibaba:arouter-annotation:${versions["arouterannotationVersion"]}",
+
+            // 事件订阅
+            "eventbus": "org.greenrobot:eventbus:${versions["eventbusVersion"]}",
+
+            // recycler-adapter
+            "recycler-adapter-helper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:${versions["recyclerAdapterVersion"]}",
+
+            // banner
+            "banner": "com.youth.banner:banner:${versions["bannerVersion"]}",
+
+            // junit
+            "junit": "junit:junit:${versions["junitVersion"]}",
+    ]
+
+    // 依赖管理
+}
